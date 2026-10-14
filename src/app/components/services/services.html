@@ -1,0 +1,20 @@
+<section id="services" class="services section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Servicios</h2>
+    <p>Ofrezco una amplia gama de servicios en desarrollo web, diseño multimedia y soluciones digitales.</p>
+  </div>
+
+  <div class="container">
+    <div class="row gy-4">
+      @for (service of services; track service.title) {
+        <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" [attr.data-aos-delay]="service.delay">
+          <div class="icon flex-shrink-0"><i class="bi" [ngClass]="service.icon"></i></div>
+          <div>
+            <h4 class="title">{{ service.title }}</h4>
+            <p class="description">{{ service.desc }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

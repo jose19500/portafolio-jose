@@ -1,0 +1,39 @@
+<section id="about" class="about section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Sobre Mí</h2>
+    <p>Soy Jose Gabriel Parraga Alvarez, estudiante apasionado por la tecnología, el diseño y el desarrollo web. Me dedico a crear experiencias digitales innovadoras y funcionales.</p>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-4 justify-content-center">
+      <div class="col-lg-4">
+        <img src="assets/img/profile-2.jpg" class="img-fluid" alt="Jose Gabriel Parraga Alvarez">
+      </div>
+      <div class="col-lg-8 content">
+        <h2>Ingeniero en Sistemas &amp; Desarrollador de Software</h2>
+        <p class="fst-italic py-3">
+          Ingeniero en Sistemas con sólida formación en desarrollo web, arquitecturas de software, bases de datos y soluciones tecnológicas innovadoras.
+        </p>
+        <div class="row">
+          <div class="col-lg-6">
+            <ul>
+              @for (info of personalInfo.slice(0, 4); track info.label) {
+                <li><i class="bi" [ngClass]="info.icon"></i> <strong>{{ info.label }}:</strong> <span>{{ info.value }}</span></li>
+              }
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <ul>
+              @for (info of personalInfo.slice(4); track info.label) {
+                <li><i class="bi" [ngClass]="info.icon"></i> <strong>{{ info.label }}:</strong> <span>{{ info.value }}</span></li>
+              }
+            </ul>
+          </div>
+        </div>
+        <p class="py-3">
+          Me apasiona aprender nuevas tecnologías y aplicarlas en proyectos creativos. Busco constantemente mejorar mis habilidades en desarrollo frontend, diseño multimedia y producción de contenido digital.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

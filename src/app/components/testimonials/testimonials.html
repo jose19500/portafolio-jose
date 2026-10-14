@@ -1,0 +1,28 @@
+<section id="testimonials" class="testimonials section light-background">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Testimonios</h2>
+    <p>Lo que dicen mis clientes y colaboradores sobre mi trabajo</p>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="swiper init-swiper">
+      <div class="swiper-wrapper">
+        @for (t of testimonials; track t.name) {
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <p>
+                <i class="bi bi-quote quote-icon-left"></i>
+                <span>{{ t.text }}</span>
+                <i class="bi bi-quote quote-icon-right"></i>
+              </p>
+              <img [src]="t.img" class="testimonial-img" [alt]="t.name">
+              <h3>{{ t.name }}</h3>
+              <h4>{{ t.role }}</h4>
+            </div>
+          </div>
+        }
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>

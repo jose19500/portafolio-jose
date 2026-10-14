@@ -1,0 +1,116 @@
+<section id="multimedia" class="multimedia section">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Zona Multimedia</h2>
+    <p>Proyectos audiovisuales, diseño sonoro y producción fotográfica digital desarrollados para Multimedia 1.</p>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <!-- Category Tabs -->
+    <div class="multimedia-tabs text-center mb-5">
+      <button class="tab-btn" [class.active]="activeTab === 'audio'" (click)="setTab('audio')">
+        <i class="bi bi-music-note-beamed me-2"></i>Producción Sonora
+      </button>
+      <button class="tab-btn" [class.active]="activeTab === 'video'" (click)="setTab('video')">
+        <i class="bi bi-camera-reels me-2"></i>Producción Audiovisual
+      </button>
+      <button class="tab-btn" [class.active]="activeTab === 'gallery'" (click)="setTab('gallery')">
+        <i class="bi bi-images me-2"></i>Galería Personal
+      </button>
+    </div>
+
+    <!-- AUDIO SECTION -->
+    @if (activeTab === 'audio') {
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5" data-aos="fade-right">
+          <div class="audio-feature-card text-center p-4">
+            <div class="vinyl-record" [class.spinning]="tracks[0].isPlaying || tracks[1].isPlaying || tracks[2].isPlaying">
+              <img src="assets/img/profile-3.jpg" alt="Jose Gabriel Parraga" class="rounded-circle">
+            </div>
+            <h4 class="mt-4 mb-1">Jose Gabriel Parraga Alvarez</h4>
+            <p class="text-muted">Ingeniero en Sistemas &amp; Desarrollador de Software</p>
+            <div class="badge-tag">Ingeniería &bull; Cochabamba</div>
+          </div>
+        </div>
+
+        <div class="col-lg-7" data-aos="fade-left">
+          <div class="playlist-card p-4">
+            <h5 class="mb-4 d-flex align-items-center">
+              <i class="bi bi-soundwave me-2 text-primary fs-4"></i>
+              Pistas de Audio &amp; Efectos Sonoros
+            </h5>
+            
+            <div class="track-list">
+              @for (track of tracks; track track.id) {
+                <div class="track-item p-3 mb-3 d-flex align-items-center justify-content-between" [class.playing]="track.isPlaying">
+                  <div class="d-flex align-items-center">
+                    <button class="play-btn me-3" (click)="togglePlay(track)">
+                      <i class="bi" [ngClass]="track.isPlaying ? 'bi-pause-fill' : 'bi-play-fill'"></i>
+                    </button>
+                    <div>
+                      <h6 class="mb-0 text-white">{{ track.title }}</h6>
+                      <small class="text-white-50">{{ track.category }} &bull; {{ track.author }}</small>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    @if (track.isPlaying) {
+                      <div class="audio-wave me-3">
+                        <span></span><span></span><span></span><span></span>
+                      </div>
+                    }
+                    <span class="track-duration text-white-50">{{ track.duration }}</span>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+
+    <!-- VIDEO SECTION -->
+    @if (activeTab === 'video') {
+      <div class="row g-4">
+        @for (video of videos; track video.title) {
+          <div class="col-lg-4 col-md-6" data-aos="zoom-in">
+            <div class="video-card h-100">
+              <div class="video-thumbnail position-relative">
+                <img [src]="video.thumbnail" [alt]="video.title" class="img-fluid w-100">
+                <div class="video-overlay d-flex align-items-center justify-content-center">
+                  <div class="video-play-icon">
+                    <i class="bi bi-play-circle-fill"></i>
+                  </div>
+                </div>
+                <span class="video-badge">{{ video.duration }}</span>
+              </div>
+              <div class="video-body p-4">
+                <span class="text-primary small fw-bold text-uppercase">{{ video.genre }}</span>
+                <h5 class="mt-1 mb-2">{{ video.title }}</h5>
+                <p class="text-muted small mb-0">{{ video.description }}</p>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+
+    <!-- GALLERY SECTION -->
+    @if (activeTab === 'gallery') {
+      <div class="row g-4">
+        @for (item of gallery; track item.title) {
+          <div class="col-lg-4 col-md-6" data-aos="flip-up">
+            <div class="gallery-card">
+              <div class="gallery-img-wrapper">
+                <img [src]="item.img" [alt]="item.title" class="img-fluid w-100">
+                <div class="gallery-overlay">
+                  <h5>{{ item.title }}</h5>
+                  <p class="mb-0">{{ item.tag }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

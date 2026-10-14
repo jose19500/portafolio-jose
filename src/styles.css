@@ -1,0 +1,20 @@
+/* Global Styles - Import is handled by angular.json */
+:root {
+  scroll-behavior: smooth;
+}
+
+/* Ensure main content and footer are properly offset by the fixed sidebar on desktop */
+@media (min-width: 1200px) {
+  app-root > main,
+  main.main,
+  main,
+  #footer,
+  .footer {
+    margin-left: 300px !important;
+  }
+}
+
+/* Smooth transitions */
+main.main {
+  transition: all 0.3s ease-in-out;
+}
